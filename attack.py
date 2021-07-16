@@ -15,6 +15,7 @@ from networks.resnet import ResNet
 from networks.densenet import DenseNet
 from networks.wide_resnet import WideResNet
 from networks.capsnet import CapsNet
+from networks.Inception_Resnet import Inception_Resnet
 
 # Helper functions
 from differential_evolution import differential_evolution
@@ -22,7 +23,7 @@ import helper
 
 
 class PixelAttacker:
-    def __init__(self, models, data, class_names, dimensions=(32, 32)):
+    def __init__(self, models, data, class_names, dimensions=(29, 29)):
         # Load data and model
         self.models = models
         self.x_test, self.y_test = data
@@ -134,6 +135,7 @@ if __name__ == '__main__':
         'densenet': DenseNet,
         'wide_resnet': WideResNet,
         'capsnet': CapsNet
+        'Inception_Renset' : Inception_Resnet
     }
 
     parser = argparse.ArgumentParser(description='Attack models on Cifar10')
@@ -155,7 +157,7 @@ if __name__ == '__main__':
 
     # Load data and model
     _, test = cifar10.load_data()
-    class_names = ['airplane', 'automobile', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck']
+    class_names = ['attack', 'normal']
     models = [model_defs[m](load_weights=True) for m in args.model]
 
     attacker = PixelAttacker(models, test, class_names)
