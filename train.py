@@ -10,7 +10,7 @@ from networks.resnet import ResNet
 from networks.densenet import DenseNet
 from networks.wide_resnet import WideResNet
 from networks.capsnet import CapsNet
-
+from networks.Inception_Resent import inception_Resent
 if __name__ == '__main__':
     models = {
         'lenet': LeNet,
@@ -20,6 +20,7 @@ if __name__ == '__main__':
         'densenet': DenseNet,
         'wide_resnet': WideResNet,
         'capsnet': CapsNet
+        'Inception_Resnet " : inception_Resent
     }
 
     parser = argparse.ArgumentParser(description='Train models on Cifar10')
