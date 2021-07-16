@@ -2,7 +2,7 @@
 
 This repository contains the source code of adversarial attack on CAN IDS.
 
-We consider 3 attacks types (Dos, fuzzy, spoofing)
+We consider 3 attacks types (Dos, fuzzy, spoofing).
 
 Dataset
 =================
