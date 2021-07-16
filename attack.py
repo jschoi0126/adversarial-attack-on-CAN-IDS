@@ -21,6 +21,22 @@ from networks.Inception_Resnet import Inception_Resnet
 from differential_evolution import differential_evolution
 import helper
 
+def load_data(file_name):
+    attack_image = np.loadtxt(file_name+"_attack_image.csv", delimiter=",")
+    attack_free_image = np.loadtxt(file_name+"_attack_free_image.csv", delimiter=",")
+    attack_image_seq = np.loadtxt(file_name+"_attack_image_seq.csv", delimiter=',')
+    attakc_free_image_seq = np.loadtxt(file_name+"_attack_free_image_seq.csv", 
+                                       delimiter=',')
+    attack_image = attack_image.reshape(
+        attack_image.shape[0], 29, 29, 1
+    )
+    attack_free_image = attack_free_image.reshape(
+        attack_free_image.shape[0], 29, 29, 1
+    )
+    attack_y = np.array([[1]] * attack_image.shape[0])
+    attack_free_y = np.array([[0]] * attack_free_image.shape[0])
+    
+    return (attack_image, attack_y, attack_image_seq) 
 
 class PixelAttacker:
     def __init__(self, models, data, class_names, dimensions=(29, 29)):
@@ -98,7 +114,7 @@ class PixelAttacker:
         return [model.name, pixel_count, img_id, actual_class, predicted_class, success, cdiff, prior_probs,
                 predicted_probs, attack_result.x]
 
-    def attack_all(self, models, samples=500, pixels=(1, 3, 5), targeted=False,
+    def attack_all(self, models, samples=500, pixels=(1), targeted=False,
                    maxiter=75, popsize=400, verbose=False):
         results = []
         for model in models:
@@ -156,7 +172,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     # Load data and model
-    _, test = cifar10.load_data()
+    test, attack_image_seq = load_data()
     class_names = ['attack', 'normal']
     models = [model_defs[m](load_weights=True) for m in args.model]
 
