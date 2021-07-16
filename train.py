@@ -20,7 +20,7 @@ if __name__ == '__main__':
         'densenet': DenseNet,
         'wide_resnet': WideResNet,
         'capsnet': CapsNet
-        'Inception_Resnet " : Inception_Resent
+        'Inception_Resnet ' : Inception_Resent
     }
 
     parser = argparse.ArgumentParser(description='Train models on Cifar10')
