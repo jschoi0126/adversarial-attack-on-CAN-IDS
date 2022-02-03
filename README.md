@@ -22,6 +22,5 @@ To perform attack, `run attack.py`. To specify the types of models to test, `use
 
 Authors
 ===========================
-Jeongseok Choi(wjdtjr123@g.skku.edu), Sungkyunkwan University
-
-Hyoungshick Kim (hyoung@skku.edu), Sungkyunkwan University
+*Jeongseok Choi(wjdtjr123@g.skku.edu), Sungkyunkwan University
+*Hyoungshick Kim (hyoung@skku.edu), Sungkyunkwan University
