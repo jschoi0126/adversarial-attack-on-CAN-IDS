@@ -19,3 +19,8 @@ For example, to train a Inception_Resnet with 200 epochs and a batch size of 128
 To perform attack, `run attack.py`. To specify the types of models to test, `use --model`.
 
     python attack.py --model Inception_Resnet
+
+Authors
+===========================
+Jeongseok Choi(wjdtjr123@g.skku.edu), Sungkyunkwan University
+Hyoungshick Kim (hyoung@skku.edu), Sungkyunkwan University
